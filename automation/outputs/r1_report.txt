@@ -1,0 +1,47 @@
+(venv) lab@ubuntu-22:~/network-lab/outputs$ cat r1_report.txt
+====================================================================================================
+Device: R1
+Host: 10.255.0.1
+Run Time: 2026-04-06 21:03:47
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+COMMAND: show ip bgp summary
+STATUS : PASS
+DETAIL : BGP summary returned neighbor/session data
+----------------------------------------------------------------------------------------------------
+BGP router identifier 10.255.0.1, local AS number 65010
+BGP table version is 3, main routing table version 3
+2 network entries using 280 bytes of memory
+2 path entries using 160 bytes of memory
+2/2 BGP path/bestpath attribute entries using 288 bytes of memory
+2 BGP AS-PATH entries using 48 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 776 total bytes of memory
+BGP activity 2/0 prefixes, 2/0 paths, scan interval 60 secs
+
+Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+10.255.0.2      4        65010      24      24        3    0    0 00:19:41        1
+203.0.113.1     4        65101      22      22        3    0    0 00:16:00        1
+
+----------------------------------------------------------------------------------------------------
+COMMAND: show ip ospf neighbor
+STATUS : PASS
+DETAIL : OSPF neighbor adjacency detected
+----------------------------------------------------------------------------------------------------
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+10.255.0.3        0   FULL/  -        00:00:36    10.0.13.2       Ethernet0/2
+10.255.0.2        0   FULL/  -        00:00:34    10.0.12.2       Ethernet0/1
+
+----------------------------------------------------------------------------------------------------
+COMMAND: show ip route 0.0.0.0
+STATUS : PASS
+DETAIL : Default route present
+----------------------------------------------------------------------------------------------------
+Routing entry for 0.0.0.0/0, supernet
+  Known via "static", distance 1, metric 0, candidate default path
+  Routing Descriptor Blocks:
+  * 172.16.1.2
+      Route metric is 0, traffic share count is 1
